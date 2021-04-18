@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-import { Observable } from 'rxjs'
+import type { Observable } from 'rxjs'
 import { inject, injectable } from 'tsyringe'
 
 import { HttpHandler } from './backend'

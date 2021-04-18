@@ -6,9 +6,34 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-// This file is not used to build this module. It is only used during editing
-// by the TypeScript language service and during build for verification. `ngc`
-// replaces this file with production index.ts when it rewrites private symbol
-// names.
-
-export * from './public_api';
+export { HttpBackend, HttpHandler } from './src/backend'
+export { HttpClient } from './src/client'
+export { HttpContext, HttpContextToken } from './src/context'
+export { HttpHeaders } from './src/headers'
+export { HTTP_INTERCEPTORS, HttpInterceptor } from './src/interceptor'
+export { JsonpClientBackend, JsonpInterceptor } from './src/jsonp'
+export {
+  HttpClientJsonpModule,
+  HttpClientModule,
+  HttpClientXsrfModule,
+  HttpInterceptingHandler as ɵHttpInterceptingHandler
+} from './src/module'
+export { HttpParameterCodec, HttpParams, HttpParamsOptions, HttpUrlEncodingCodec } from './src/params'
+export { HttpRequest } from './src/request'
+export {
+  HttpDownloadProgressEvent,
+  HttpErrorResponse,
+  HttpEvent,
+  HttpEventType,
+  HttpHeaderResponse,
+  HttpProgressEvent,
+  HttpResponse,
+  HttpResponseBase,
+  HttpSentEvent,
+  HttpStatusCode,
+  HttpUploadProgressEvent,
+  HttpUserEvent
+} from './src/response'
+export { HttpXhrBackend } from './src/xhr'
+export { XhrFactory } from './src/xhrFactory'
+export { HttpXsrfTokenExtractor } from './src/xsrf'
