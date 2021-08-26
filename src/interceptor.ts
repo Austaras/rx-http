@@ -7,6 +7,7 @@
  */
 
 import type { Observable } from 'rxjs'
+import { injectable } from 'tsyringe'
 
 import { HttpHandler } from './backend'
 import { HttpRequest } from './request'
@@ -73,6 +74,7 @@ export class HttpInterceptorHandler implements HttpHandler {
  */
 export const HTTP_INTERCEPTORS = Symbol('HTTP_INTERCEPTORS')
 
+@injectable()
 export class NoopInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req)

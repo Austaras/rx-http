@@ -6,7 +6,6 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-import { Injectable, Injector, ModuleWithProviders, NgModule } from '@angular/core'
 import { Observable } from 'rxjs'
 
 import { HttpBackend, HttpHandler } from './backend'
@@ -31,14 +30,14 @@ import { HttpXsrfCookieExtractor, HttpXsrfInterceptor, HttpXsrfTokenExtractor, X
 export class HttpInterceptingHandler implements HttpHandler {
   private chain: HttpHandler | null = null
 
-  constructor(private backend: HttpBackend, private injector: Injector) {}
+  constructor(private backend: HttpBackend, private container: Injector) {}
 
   handle(req: HttpRequest<any>): Observable<HttpEvent<any>> {
     if (this.chain === null) {
-      const interceptors = this.injector.get(HTTP_INTERCEPTORS, [])
+      const interceptors = this.container.get(HTTP_INTERCEPTORS, [])
       this.chain = interceptors.reduceRight((next, interceptor) => new HttpInterceptorHandler(next, interceptor), this.backend)
     }
-    return this.chain.handle(req)
+    return this.chain!.handle(req)
   }
 }
 
